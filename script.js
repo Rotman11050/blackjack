@@ -78,7 +78,8 @@ class Blackjack {
         this.yourSum = this.reduceAce(this.yourSum, this.yourAceCount);
     
         if (this.yourSum > 21) {
-            this.canHit = false; 
+            this.canHit = false;  
+            document.getElementById('hit').style.backgroundColor = '#808080';
         }
     }
     
@@ -92,6 +93,7 @@ class Blackjack {
         document.getElementById("dealer-sum").innerText = this.dealerSum;
         document.getElementById("your-sum").innerText = this.yourSum;
         document.getElementById("results").innerText = message;
+        document.getElementById('hit').style.backgroundColor = '#808080';
     }
     
     getResultMessage() {
@@ -136,6 +138,7 @@ class Blackjack {
         this.startGame();
     
         document.getElementById("hit").replaceWith(document.getElementById("hit").cloneNode(true));
+        document.getElementById('hit').style.backgroundColor = '#4CAF50';
         document.getElementById("stay").replaceWith(document.getElementById("stay").cloneNode(true));
     
         document.getElementById("hit").addEventListener("click", () => this.hit());
